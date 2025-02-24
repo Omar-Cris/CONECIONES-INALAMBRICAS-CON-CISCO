@@ -17,55 +17,14 @@
 - WPA2-WPA3 para mayor seguridad
 - ingresa una contraseña segura 
 ---
-## **Paso 4: Conectarse a PostgreSQL dentro del contenedor**
+## **Paso 4: Configurar el DHCP en el router**
 
-Ejecuta el siguiente comando para ingresar al contenedor y conectarte a PostgreSQL:
-
-```bash
-docker exec -it mi_postgres psql -U admin -d mi_base
-```
+- Ve a **Config -> DHCP** y activa el servicio
 ---
-
-## **Paso 5: Crear la tabla "Estudiante"**
-
-Dentro de la consola de PostgreSQL, ejecuta:
-
-```sql
-CREATE TABLE Estudiante (
-    id SERIAL PRIMARY KEY,
-    nombre VARCHAR(100) NOT NULL,
-    edad INT,
-    correo VARCHAR(100) UNIQUE,
-    fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-```
-Verifica que la tabla fue creada con:
-
-```sql
-\d Estudiante
-```
-
+##**Paso 5: Configurar los sigueites valores**
+- **Start IP** : 192.168.1.10
+- **Subnet mask** : 255.255.255.0
+- **Default Gateway** : 192.168.1.1
+ -----
+Con todo esto realizado podrsa configurar de forma inalambrica en Cisco
 ---
-
-## **Paso 6: Insertar y consultar datos**
-
-Para insertar un estudiante:
-
-```sql
-INSERT INTO Estudiante (nombre, edad, correo) VALUES ('Juan Pérez', 22, 'juanperez@gmail.com');
-``
-Consulta los datos:
-
-```sql
-SELECT * FROM Estudiante;
-```
----
-
-## **Paso 7: Salir y detener el contenedor**
-
-Para salir de PostgreSQL:
-
-```sql
-\q
-```
-Con estos pasos, ya tienes PostgreSQL corriendo en Docker con una base de datos y una tabla funcional.
