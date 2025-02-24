@@ -1,16 +1,6 @@
 # CONECIONES-INALAMBRICAS-CON-CISCO
-cker---postgre-sql
+## **Paso 1: Añadir dispositivos**
 
-## **Requisitos previos**
-
-- Tener [Docker](https://www.docker.com/products/docker-desktop/) instalado.
-- Conocimientos básicos de PostgreSQL y Docker.
-
-## **Paso 1: Verificar Docker**
-
-Para asegurarte de que Docker está instalado, ejecuta en la terminal:
-
-docker --version
 ```
 Si muestra la versión de Docker, significa que está instalado correctamente.
 ```
