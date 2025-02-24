@@ -11,30 +11,12 @@
 
 - Haz clic en el router analambrico 
 - Ve ala pestaña **Config -> Wireless**
+- Define el **SSID** (nombre de la red)
 ---
-
-## **Paso 3: Crear y ejecutar un contenedor con PostgreSQL**
-
-Ejecuta el siguiente comando para crear y ejecutar el contenedor:
-
-```bash
-docker run --name mi_postgres -e POSTGRES_USER=admin -e POSTGRES_PASSWORD=admin123 -e POSTGRES_DB=mi_base -p 5432:5432 -d postgres
-```
-📌 **Parámetros:**
-- `--name mi_postgres` → Nombre del contenedor.
-- `-e POSTGRES_USER=admin` → Usuario de la base de datos.
-- `-e POSTGRES_PASSWORD=admin123` → Contraseña.
-- `-e POSTGRES_DB=mi_base` → Nombre de la base de datos.
-- `-p 5432:5432` → Expone el puerto 5432.
-- `-d postgres` → Ejecuta en segundo plano.
-
-Verifica que el contenedor está corriendo con:
-
-```bash
-docker ps
-```
+## **Paso 3: Selecciona el modo de seguridad**
+- WPA2-WPA3 para mayor seguridad
+- ingresa una contraseña segura 
 ---
-
 ## **Paso 4: Conectarse a PostgreSQL dentro del contenedor**
 
 Ejecuta el siguiente comando para ingresar al contenedor y conectarte a PostgreSQL:
