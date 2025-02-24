@@ -1,84 +1,101 @@
 # CONECIONES-INALAMBRICAS-CON-CISCO
-Componentes de una Red Inalámbrica en Cisco Packet Tracer
+cker---postgre-sql
 
-En Cisco Packet Tracer, una red inalámbrica está compuesta por diversos elementos clave que permiten la conectividad sin cables. Estos incluyen:
+## **Requisitos previos**
 
-Router inalámbrico (WRT300N): Dispositivo central que gestiona la conexión WiFi.
+- Tener [Docker](https://www.docker.com/products/docker-desktop/) instalado.
+- Conocimientos básicos de PostgreSQL y Docker.
 
-Computadoras y dispositivos móviles: Equipos que se conectan a la red WiFi.
+## **Paso 1: Verificar Docker**
 
-Configuraciones de seguridad: Métodos para proteger la red, como cifrado WPA2/WPA3 y filtrado de direcciones MAC.
+Para asegurarte de que Docker está instalado, ejecuta en la terminal:
 
-Configuración de una Red Inalámbrica en Cisco Packet Tracer
+docker --version
+```
+Si muestra la versión de Docker, significa que está instalado correctamente.
+```
+---
 
-Para configurar una red inalámbrica en Cisco Packet Tracer, se deben seguir los siguientes pasos:
+## **Paso 2: Descargar la imagen de PostgreSQL**
 
-Paso 1
+Ejecuta el siguiente comando para descargar la imagen oficial de PostgreSQL:
 
-Dirigirse al icono de Wireless y seleccionar el router WRT300N.
+```bash
+docker pull postgres
+```
+---
 
-Paso 2
+## **Paso 3: Crear y ejecutar un contenedor con PostgreSQL**
 
-Seleccionar el router WRT300N y configurarlo asignando las direcciones IP y la máscara de red.
+Ejecuta el siguiente comando para crear y ejecutar el contenedor:
 
-Paso 3
+```bash
+docker run --name mi_postgres -e POSTGRES_USER=admin -e POSTGRES_PASSWORD=admin123 -e POSTGRES_DB=mi_base -p 5432:5432 -d postgres
+```
+📌 **Parámetros:**
+- `--name mi_postgres` → Nombre del contenedor.
+- `-e POSTGRES_USER=admin` → Usuario de la base de datos.
+- `-e POSTGRES_PASSWORD=admin123` → Contraseña.
+- `-e POSTGRES_DB=mi_base` → Nombre de la base de datos.
+- `-p 5432:5432` → Expone el puerto 5432.
+- `-d postgres` → Ejecuta en segundo plano.
 
-Asignar un nombre a la red (SSID), en este caso se optó por WiFi1.
+Verifica que el contenedor está corriendo con:
 
-Paso 4
+```bash
+docker ps
+```
+---
 
-Configurar el tipo de seguridad, el método de encriptación y asignar una contraseña para la red.
+## **Paso 4: Conectarse a PostgreSQL dentro del contenedor**
 
-Paso 5
+Ejecuta el siguiente comando para ingresar al contenedor y conectarte a PostgreSQL:
 
-Para conectar las PCs, apagarlas, quitar el puerto de red y agregar el adaptador inalámbrico.
+```bash
+docker exec -it mi_postgres psql -U admin -d mi_base
+```
+---
 
-Paso 6
+## **Paso 5: Crear la tabla "Estudiante"**
 
-Acceder a la pestaña Config → Wireless, donde se deben ingresar:
+Dentro de la consola de PostgreSQL, ejecuta:
 
-SSID
+```sql
+CREATE TABLE Estudiante (
+    id SERIAL PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    edad INT,
+    correo VARCHAR(100) UNIQUE,
+    fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+```
+Verifica que la tabla fue creada con:
 
-Contraseña de la red
+```sql
+\d Estudiante
+```
 
-Paso 7
+---
 
-Configurar la conexión en los dispositivos PC y móvil ingresando:
+## **Paso 6: Insertar y consultar datos**
 
-SSID
+Para insertar un estudiante:
 
-Tipo de encriptación
+```sql
+INSERT INTO Estudiante (nombre, edad, correo) VALUES ('Juan Pérez', 22, 'juanperez@gmail.com');
+``
+Consulta los datos:
 
-Contraseña de la red
+```sql
+SELECT * FROM Estudiante;
+```
+---
 
-Seguridad en Redes Inalámbricas
+## **Paso 7: Salir y detener el contenedor**
 
-Para garantizar la seguridad de una red inalámbrica, se pueden implementar las siguientes medidas:
+Para salir de PostgreSQL:
 
-Filtrar direcciones MAC para permitir solo dispositivos autorizados.
-
-Usar WPA2/WPA3 en lugar de WEP para mayor seguridad.
-
-Desactivar el SSID Broadcast para ocultar la red.
-
-Implementar autenticación RADIUS en redes empresariales.
-
-Simulación de Tráfico y Análisis en Cisco Packet Tracer
-
-Una vez configurada la red, se pueden realizar pruebas utilizando herramientas de Packet Tracer:
-
-Ping (ICMP): Para comprobar conectividad entre dispositivos.
-
-Traceroute: Para analizar la ruta de los paquetes en la red.
-
-Packet Sniffer: Para monitorear tráfico de red y detectar vulnerabilidades.
-
-Conclusión
-
-La configuración de redes inalámbricas en Cisco Packet Tracer es una habilidad esencial para cualquier profesional de redes. A través de este proceso, se lograron:
-
-✔ Aprender los conceptos clave de las redes inalámbricas.
-✔ Configurar una red WiFi paso a paso.
-✔ Implementar medidas de seguridad para proteger la red.
-✔ Analizar el tráfico de red para validar la conectividad.
-
+```sql
+\q
+```
+Con estos pasos, ya tienes PostgreSQL corriendo en Docker con una base de datos y una tabla funcional.
