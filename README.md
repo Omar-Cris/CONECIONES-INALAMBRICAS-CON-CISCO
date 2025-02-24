@@ -9,8 +9,8 @@
 
 1.- Accede a la configuracion del router :
 
-Haz clic en el router analambrico 
-
+- Haz clic en el router analambrico 
+- Ve ala pestaña **Config -> Wireless**
 ---
 
 ## **Paso 3: Crear y ejecutar un contenedor con PostgreSQL**
