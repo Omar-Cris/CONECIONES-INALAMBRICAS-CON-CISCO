@@ -8,9 +8,9 @@
 ## **Paso 2: Configuracion del router **
 
 1.- Accede a la configuracion del router :
-```bash
+
 Haz clic en el router analambrico 
-```
+
 ---
 
 ## **Paso 3: Crear y ejecutar un contenedor con PostgreSQL**
