@@ -1,10 +1,7 @@
 # CONECIONES-INALAMBRICAS-CON-CISCO
 ## **Paso 1: Añadir dispositivos**
 
-```
-Abre Cisco Packet tracer
-```
-
+📌 **
 ---
 
 ## **Paso 2: Descargar la imagen de PostgreSQL**
