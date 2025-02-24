@@ -2,8 +2,9 @@
 ## **Paso 1: Añadir dispositivos**
 
 ```
-Si muestra la versión de Docker, significa que está instalado correctamente.
+Abre Cisco Packet tracer
 ```
+
 ---
 
 ## **Paso 2: Descargar la imagen de PostgreSQL**
