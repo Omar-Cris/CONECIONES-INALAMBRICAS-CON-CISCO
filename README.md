@@ -5,12 +5,11 @@
 - Añade dispositivos finales como PC, Smartphones
 ---
 
-## **Paso 2: Descargar la imagen de PostgreSQL**
+## **Paso 2: Configuracion del router **
 
-Ejecuta el siguiente comando para descargar la imagen oficial de PostgreSQL:
-
+1.- Accede a la configuracion del router :
 ```bash
-docker pull postgres
+Haz clic en el router analambrico 
 ```
 ---
 
