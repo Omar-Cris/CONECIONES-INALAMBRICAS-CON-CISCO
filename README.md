@@ -1,7 +1,8 @@
 # CONECIONES-INALAMBRICAS-CON-CISCO
 ## **Paso 1: Añadir dispositivos**
-
-📌 **
+- Abrir Cisco Packet Tracer
+- Arrastrar un Router inalambrico o un Acces point
+- Añade dispositivos finales como PC, Smartphones
 ---
 
 ## **Paso 2: Descargar la imagen de PostgreSQL**
